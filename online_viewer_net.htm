@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>/* GFX'e uygun, KOYU, CİDDİ ve MAT renk paleti */
+:root {
+    --primary-color: #A31F34; /* Mat Kırmızı (Türkiye rengi, daha az canlı) */
+    --secondary-color: #C0C0C0; /* Metalik Gri/Gümüş (Vurgu) */
+    --dark-bg: #0D1117; /* GitHub/VS Code benzeri derin koyu arka plan */
+    --light-bg: #161B22; /* Orta Koyu ton (Sectionlar) */
+    --text-color: #F0F6FC; /* Açık ve temiz metin */
+    --font-header: 'Oswald', sans-serif; /* Güçlü, keskin font */
+    --font-body: 'Montserrat', sans-serif; /* Modern, genç font */
+}
+
+/* Genel Sıfırlama ve Font Ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.7; /* Metin satır aralığı ciddiyeti artırır */
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Başlık (Header / Hero Section) --- */
+.hero {
+    height: 70vh;
+    background-image: url('https://i.imgur.com/49b8dd.png'); 
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Daha az şeffaf, daha koyu gradyan */
+    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.7) 0%, rgba(13, 17, 23, 0.5) 50%, rgba(13, 17, 23, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-header);
+    font-size: 4.5rem; 
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 6px; /* Daha ciddi bir görünüm için harf aralığı artırıldı */
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.slogan {
+    font-size: 1.6rem; /* Slogan daha belirgin */
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- İçerik (Main) --- */
+.container {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section {
+    padding: 40px 30px;
+    margin-bottom: 40px;
+    background-color: var(--light-bg);
+    border-radius: 6px; /* Daha keskin, az yuvarlak köşeler */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-left: 4px solid var(--primary-color); /* Sol kenara vurgu */
+}
+
+.section-title {
+    font-family: var(--font-header);
+    font-size: 3rem; 
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--secondary-color); /* Daha ince bir çizgi */
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.section p, .section ul li {
+    font-size: 1.05rem; 
+    color: #C0C0C0; /* Açık gri metin */
+    font-weight: 500;
+}
+
+/* --- Bağlantı Kartları (Link Grid) --- */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px; 
+    justify-content: center;
+}
+
+.link-card {
+    background-color: var(--dark-bg);
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #30363D; /* Çok koyu gri border */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.link-card:hover {
+    transform: translateY(-3px); 
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.link-card h3 {
+    font-family: var(--font-header);
+    font-size: 2.2rem; 
+    margin-top: 15px;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+.link-card p {
+    color: #8B949E; /* Soluk gri */
+    margin-top: 10px;
+    font-size: 1rem;
+    padding-bottom: 20px;
+}
+
+.icon {
+    font-size: 3.5rem; 
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.cta-arrow {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover .cta-arrow {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #010409;
+    color: #484f58;
+    font-size: 0.95rem;
+    border-top: 3px solid var(--primary-color); 
+    margin-top: 40px;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 900px) {
+    .link-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+
+    .slogan {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}</style>
+        </head>
+        <body>
+            
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDF | TÜRK SİLAHLI KUVVETLERİ</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&amp;family=Oswald:wght@500;700&amp;display=swap" rel="stylesheet">
+
+
+    <header class="hero"> 
+        <div class="hero-overlay">
+            <h1>TÜRK SİLAHLI KUVVETLERİ</h1>
+            <p class="slogan">VATAN, MİLLET, GÖREV! | ROBLOX ASKERİ ROL YAPMA GRUBU</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hakkimizda" class="section">
+            <h2 class="section-title">🇹🇷 HAKKIMIZDA</h2>
+            <p>
+                **TDF | Turkish Armed Forces**, 4 Ocak 2025 tarihinde **nat.inc** kuruculuğunda kurulmuş, askeri disiplin ve rol yapma (roleplay) odaklı bir Roblox topluluğudur. Amacımız, en gerçekçi ve düzenli askeri deneyimi sunarken, üyelerimiz arasında güçlü bir birlik ve kardeşlik bağı oluşturmaktır.
+            </p>
+            <p>
+                Eğitimler, tatbikatlar ve operasyonlarla kendinizi geliştirin, rütbe atlayın ve Türkiye'nin sanal ordusunun bir parçası olun!
+            </p>
+        </section>
+
+        <section id="katilim" class="section">
+            <h2 class="section-title">🔗 BİZE KATILIN</h2>
+            <div class="link-grid">
+                <a href="https://discord.gg/QXQ8VURUxa" target="_blank" class="link-card discord" style="transform: scale(1);">
+                    <i class="icon">🔊</i>
+                    <h3>DİSCORD SUNUCUSU</h3>
+                    <p>Eğitim saatlerini, duyuruları ve tüm etkinlikleri takip edin.</p>
+                    <span class="cta-arrow">→</span>
+                </a>
+                <a href="https://www.roblox.com/tr/communities/36089321/TDF-TURKISH-ARMED-FORCES#!/about" target="_blank" class="link-card roblox" style="transform: scale(1);">
+                    <i class="icon">⚔️</i>
+                    <h3>ROBLOX GRUBU</h3>
+                    <p>Ana grubumuza katılarak resmi rütbenizi alın ve üniformanızı giyin.</p>
+                    <span class="cta-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="kurucu" class="section footer-info">
+            <h2 class="section-title">🎖️ KOMUTA VE TARİH</h2>
+            <ul>
+                <li>**Kurucu:** nat.inc</li>
+                <li>**Kuruluş Tarihi:** 4 Ocak 2025</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 TDF | Turkish Armed Forces. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // JS kodu aynı kalacaktır
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+
+
+            <script>// İsteğe bağlı: Butonlara tıklayınca hafif bir animasyon ekler.
+document.querySelectorAll('.link-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            card.style.transform = 'scale(1)';
+        }, 100);
+    });
+});</script>
+        
+    
+</body>
